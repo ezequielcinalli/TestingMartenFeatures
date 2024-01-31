@@ -14,4 +14,9 @@ public class TodoItemProjection : SingleStreamProjection<TodoItem>
     {
         document.Description = @event.Description;
     }
+    
+    public void Apply(TodoItemCounterIncremented @event, TodoItem document)
+    {
+        document.Counter += @event.Increment;
+    }
 }
